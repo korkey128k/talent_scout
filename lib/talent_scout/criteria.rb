@@ -32,8 +32,7 @@ module TalentScout
     def applicable?(attribute_set)
       names.all? do |name|
         attribute = attribute_set[name]
-        attribute.came_from_user? &&
-          (!attribute.value.nil? || (allow_nil && attribute.value_before_type_cast.nil?))
+        attribute.came_from_user? && !attribute.value.nil?
       end
     end
 
