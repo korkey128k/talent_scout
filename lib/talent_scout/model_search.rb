@@ -259,7 +259,7 @@ module TalentScout
       criteria_list << crit
 
       crit.names.each do |name|
-        attribute name, type, **attribute_options
+        attribute name, type, default: attribute_options[:default], **attribute_options.except(:default)
 
         # HACK FormBuilder#select uses normal attribute readers instead
         # of `*_before_type_cast` attribute readers.  This breaks value
